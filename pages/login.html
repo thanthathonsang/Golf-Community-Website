@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - A Golf Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <!-- Logo -->
+        <div class="login-header">
+            <img src="../assets/img/logo.png" alt="Golf Community" class="login-logo">
+        </div>
+
+        <!-- Login Card -->
+        <div class="login-card">
+            <form action="#">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-signin">Sign in</button>
+            </form>
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-social">
+                    <img src="../assets/img/google.png" alt="Google" class="social-icon-img"> Google
+                </button>
+                <button class="btn-social">
+                    <img src="../assets/img/facebook.png" alt="Facebook" class="social-icon-img"> Facebook
+                </button>
+            </div>
+        </div>
+
+        <div class="login-footer">
+            <p>Don’t have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <h2>Connected. Engaged. Informed.</h2>
+            <p>We're a vibrant golf community where players connect, share, and grow together. Our forum and smart
+                chatbot make it effortless to exchange ideas, discover courses, and stay updated on the game you love.
+            </p>
+
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Forum</a>
+                <a href="#">News</a>
+                <a href="#">Articles</a>
+                <a href="#">About Us</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025 - A Golf Community Website</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <img src="../assets/img/logo.png" alt="Golf Community" class="footer-corner-logo">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
