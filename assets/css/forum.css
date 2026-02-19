@@ -1,0 +1,198 @@
+/* =========================================
+   1. ส่วนกำหนดตัวแปรสีหลัก (Variables)
+========================================= */
+:root {
+    --bg-dark: #0f172a;
+    --bg-sidebar: #18181b;
+    --text-light: #f8fafc;
+    --text-dark: #333333;
+    --primary-blue: #0066ff;
+    --primary-green: #10b981;
+    --bg-body-gradient: linear-gradient(135deg, #eef2ff 0%, #fff1f2 100%);
+    --card-bg: #ffffff;
+    
+    --placeholder-color: #cbd5e1;
+    --placeholder-dark: #475569;
+    --gold: #b48c59;
+    --gold-light: #dcb881;
+}
+
+/* =========================================
+   2. การตั้งค่าพื้นฐาน (Global Settings)
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg-body-gradient); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   3. กล่องจำลอง (Placeholders)
+========================================= */
+.icon-placeholder { background-color: var(--placeholder-color); border-radius: 4px; display: inline-block; flex-shrink: 0; }
+.avatar-placeholder { background-color: var(--placeholder-dark); border-radius: 50%; flex-shrink: 0; }
+.small-icon { width: 16px; height: 16px; }
+.tiny-icon { width: 12px; height: 12px; }
+.bot-icon { width: 30px; height: 30px; background-color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.user-avatar { width: 32px; height: 32px; background-color: #a855f7; } 
+.author-avatar { width: 40px; height: 40px; background-color: #000000; }
+.small-avatar { width: 32px; height: 32px; background-color: #64748b; }
+.crown-icon { width: 24px; height: 24px; background-color: var(--gold); mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>') no-repeat center; -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>') no-repeat center; }
+
+/* =========================================
+   4. แถบนำทางด้านบน (Navbar)
+========================================= */
+.navbar { background-color: #000000; color: var(--text-light); display: flex; justify-content: space-between; align-items: center; height: 70px; padding: 0 40px; position: sticky; top: 0; z-index: 100; }
+.logo-container { flex: 1; display: flex; justify-content: flex-start; }
+.brand-logo { height: 40px; width: auto; object-fit: contain; transform: scale(1.6); transform-origin: left center; }
+.nav-links { flex: 1; display: flex; justify-content: center; gap: 30px; font-size: 14px; font-weight: 500; }
+.nav-links a:hover { color: var(--primary-green); }
+.nav-actions { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+.btn-new-topic { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 14px; font-weight: 500; }
+
+/* =========================================
+   5. โครงสร้างหลัก (Main Layout)
+========================================= */
+.main-container { display: flex; gap: 30px; padding: 30px 40px; flex: 1; max-width: 1400px; margin: 0 auto; width: 100%; }
+.layout-3-cols .feed-area { flex: 1; max-width: 700px; } 
+
+/* =========================================
+   6. เมนูด้านซ้าย (Left Sidebar)
+========================================= */
+.sidebar { width: 280px; background-color: var(--bg-sidebar); border-radius: 12px; padding: 20px; color: var(--text-light); height: fit-content; flex-shrink: 0; }
+.search-box { background-color: #27272a; border-radius: 20px; padding: 10px 15px; display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
+.search-box input { background: none; border: none; color: white; outline: none; width: 100%; font-size: 14px; }
+.sidebar-menu { list-style: none; margin-bottom: 30px; }
+.sidebar-menu a { display: flex; align-items: center; gap: 12px; padding: 12px 15px; border-radius: 8px; font-size: 14px; font-weight: 500; margin-bottom: 5px; transition: all 0.2s; }
+.sidebar-menu a.active { background-color: var(--primary-blue); }
+.category-header { display: flex; justify-content: space-between; align-items: center; color: var(--primary-blue); font-weight: 600; font-size: 14px; margin-bottom: 15px; padding: 0 15px; }
+.category-list { list-style: none; }
+.category-list a { display: flex; align-items: center; gap: 12px; padding: 10px 15px; border-radius: 8px; font-size: 13px; color: #d4d4d8; margin-bottom: 5px; }
+.category-list a.active-cat { background-color: #ffffff; color: #000000; font-weight: 600; }
+.color-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+/* =========================================
+   7. พื้นที่ฟีดตรงกลาง (Feed Area & Cards)
+========================================= */
+.feed-area { flex: 1; max-width: 800px; }
+.feed-controls { display: flex; align-items: center; margin-bottom: 20px; gap: 20px; }
+.filter-dropdown { background-color: white; padding: 8px 15px; border-radius: 20px; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.filter-dropdown.outline { border: 1px solid #e2e8f0; background: transparent; }
+.post-count { color: var(--primary-blue); font-weight: 600; font-size: 14px; }
+.post-card { background-color: var(--card-bg); border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+.post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.post-author { display: flex; align-items: center; gap: 15px; }
+.author-name { font-size: 14px; color: #4b5563; font-weight: 600; }
+.post-time { font-size: 13px; color: #6b7280; }
+.post-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 15px; }
+.post-actions-left, .post-actions-right { display: flex; align-items: center; gap: 20px; }
+.action-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; font-weight: 600; cursor: pointer; }
+.action-item.upvote { color: var(--primary-green); }
+.action-item.stats { color: #4f46e5; }
+.post-content-area { margin-bottom: 25px; }
+.post-title-placeholder { height: 20px; width: 60%; background-color: #f1f5f9; border-radius: 4px; margin-bottom: 15px; }
+.post-text-placeholder { height: 12px; width: 100%; background-color: #f8fafc; border-radius: 4px; margin-bottom: 8px; }
+.post-text-placeholder.short { width: 80%; }
+.main-detail-post { border: 1px solid #e2e8f0; }
+.detail-post-title { font-size: 18px; color: #111827; margin-bottom: 15px; }
+.detail-post-desc { font-size: 14px; color: #4b5563; line-height: 1.6; margin-bottom: 25px; }
+
+/* =========================================
+   8. โซนคอมเมนต์ (Comments Section)
+========================================= */
+.comment-input-box { background-color: white; border: 1px solid #e2e8f0; border-radius: 30px; padding: 15px 20px; color: #94a3b8; font-size: 14px; margin-bottom: 20px; cursor: text; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.comment-filter { margin-bottom: 20px; }
+.comment-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; }
+.comment-card.nested { background: #f8fafc; margin-top: 15px; border: none; }
+.comment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.comment-author-info { display: flex; align-items: center; gap: 10px; }
+.comment-author-name { font-size: 14px; font-weight: 600; color: #111827; }
+.comment-time { font-size: 12px; color: #94a3b8; }
+.comment-actions-top { display: flex; align-items: center; gap: 15px; }
+.btn-report { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 4px 10px; font-size: 12px; color: #64748b; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.comment-body { font-size: 14px; color: #334155; line-height: 1.5; margin-bottom: 15px; padding-left: 50px; } 
+.comment-footer { display: flex; align-items: center; gap: 15px; padding-left: 50px; }
+.comment-action { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #64748b; cursor: pointer; }
+.comment-action.reply-btn { font-weight: 600; color: #334155; }
+.replies-toggle { padding-left: 50px; margin-top: 15px; font-size: 13px; font-weight: 500; cursor: pointer; }
+.nested-replies { padding-left: 50px; border-left: 2px solid #e2e8f0; margin-left: 20px; margin-top: 10px; }
+
+/* =========================================
+   9. เมนูด้านขวา (Right Sidebar)
+========================================= */
+.right-sidebar { width: 300px; flex-shrink: 0; }
+.popular-widget { background: white; border-radius: 12px; padding: 25px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.popular-header { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--gold); }
+.popular-header h3 { font-size: 18px; font-weight: 700; }
+.popular-tabs { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: #cbd5e1; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+.active-tab { color: #334155; position: relative; }
+.popular-list { list-style: none; margin-bottom: 20px; }
+.popular-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+.popular-item:last-child { border-bottom: none; }
+.rank { font-size: 14px; font-weight: 700; color: #94a3b8; width: 15px; text-align: center; }
+.rank.gold { color: var(--gold); }
+.popular-info { display: flex; flex-direction: column; gap: 4px; }
+.popular-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+.popular-stars { font-size: 11px; color: var(--gold); display: flex; align-items: center; gap: 4px; font-weight: 600; }
+.btn-show-more { width: 100%; background-color: var(--gold); color: white; border: none; border-radius: 8px; padding: 12px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn-show-more:hover { background-color: #9c7849; }
+
+/* =========================================
+   10. ส่วนสร้างและแก้ไขโพสต์ (Create / Edit Post)
+========================================= */
+.page-title { font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 25px; }
+.category-select-btn { display: inline-flex; align-items: center; gap: 10px; background-color: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 8px 16px; font-size: 14px; font-weight: 500; color: #334155; margin-bottom: 30px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.form-group { margin-bottom: 25px; }
+.input-field { width: 100%; background-color: transparent; border: 1px solid #cbd5e1; border-radius: 25px; padding: 15px 20px; font-size: 15px; color: #334155; outline: none; transition: border 0.3s; }
+.input-field:focus { border-color: var(--primary-blue); }
+.title-input::placeholder { color: #ef4444; font-weight: 500; }
+.char-count { text-align: right; font-size: 12px; color: #111827; font-weight: 600; margin-top: 8px; padding-right: 15px; }
+.upload-area { border: 2px dashed #cbd5e1; border-radius: 12px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background-color: transparent; cursor: pointer; transition: background 0.2s; }
+.upload-area:hover { background-color: #f8fafc; }
+.upload-area span { font-size: 14px; font-weight: 600; color: #111827; }
+.file-info-text { font-weight: 700; }
+.input-label { display: block; font-size: 16px; font-weight: 600; color: #111827; margin-bottom: 10px; padding-left: 5px; }
+.body-input { border-radius: 12px; resize: vertical; min-height: 120px; line-height: 1.5; }
+.form-actions { display: flex; justify-content: flex-end; }
+.btn-submit-post { background-color: var(--primary-blue); color: white; border: none; border-radius: 20px; padding: 10px 30px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 102, 255, 0.2); transition: 0.2s; }
+.btn-submit-post:hover { background-color: #0052cc; }
+.rules-widget { background-color: var(--bg-sidebar); border-radius: 12px; padding: 25px 20px; color: white; }
+.rules-header { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
+.rules-header h3 { font-size: 16px; font-weight: 600; color: #f8fafc; }
+.rules-list { list-style: none; padding: 0; }
+.rules-list li { font-size: 12px; font-weight: 500; color: #f8fafc; margin-bottom: 15px; line-height: 1.5; }
+
+/* =========================================
+   11. ปุ่มแชท (FAB) และ ส่วนล่างสุด (Footer)
+========================================= */
+.fab { position: fixed; bottom: 40px; right: 40px; width: 60px; height: 60px; background-color: var(--primary-blue); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4); cursor: pointer; z-index: 100; }
+.footer { background-color: var(--bg-dark); color: var(--text-light); padding: 60px 40px 30px; margin-top: auto; position: relative; }
+.footer-logo-img { height: 30px; width: auto; object-fit: contain; position: absolute; top: 20px; right: 40px; }
+.footer-content { max-width: 800px; margin: 0 auto; text-align: center; padding-top: 20px; }
+.footer-title { font-size: 24px; font-weight: 600; margin-bottom: 15px; }
+.footer-desc { font-size: 12px; color: #94a3b8; line-height: 1.6; margin-bottom: 40px; }
+.footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; font-size: 12px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155; padding-top: 20px; font-size: 11px; color: #94a3b8; max-width: 1200px; margin: 0 auto; }
+.social-icons { display: flex; gap: 15px; }
+.social-icon { width: 30px; height: 30px; border: 1px solid #334155; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+
+/* =========================================
+   12. หน้า Profile (User Profile Page)
+========================================= */
+.profile-container { max-width: 1000px; margin: 40px auto 80px; width: 100%; padding: 0 40px; flex: 1; }
+.profile-header-card { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+.profile-user-info { display: flex; align-items: center; gap: 25px; }
+.profile-avatar-wrapper { position: relative; width: 90px; height: 90px; }
+.profile-avatar-large { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.status-dot { position: absolute; bottom: 2px; right: 2px; width: 18px; height: 18px; background-color: var(--primary-green); border: 3px solid var(--bg-body-gradient); border-radius: 50%; }
+.profile-details h2 { font-size: 22px; color: #111827; margin-bottom: 5px; }
+.profile-details p { font-size: 14px; color: #64748b; }
+.btn-edit-profile { background-color: var(--primary-blue); color: white; border: none; padding: 10px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn-edit-profile:hover { background-color: #0052cc; }
+.profile-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px 50px; margin-bottom: 50px; }
+.profile-input-group label { display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 10px; }
+.profile-input-group input { width: 100%; background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; font-size: 14px; color: #334155; outline: none; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: border 0.2s; }
+.profile-input-group input:focus { border-color: var(--primary-blue); }
+.profile-input-group input::placeholder { color: #94a3b8; }
+.profile-divider { border: none; border-top: 1px solid #cbd5e1; margin-bottom: 30px; }
+.profile-recent-activity h3 { font-size: 16px; color: #111827; font-weight: 700; margin-bottom: 50px; }
+.empty-state-box { display: flex; justify-content: center; padding: 40px 0; }
+.empty-state-box p { color: #475569; font-weight: 600; font-size: 15px; }
