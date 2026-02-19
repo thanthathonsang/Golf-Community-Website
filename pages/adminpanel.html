@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - A Golf Community</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="../assets/img/logo.png" alt="A Golf Community Logo" class="brand-logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Forum</a>
+            <a href="#">News</a>
+            <a href="#">Articles</a>
+            <a href="#">About Us</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="icon-placeholder small-icon bell-icon"></div>
+            <div class="avatar-placeholder user-avatar"></div>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        
+        <aside class="admin-sidebar">
+            <button id="btn-news" class="admin-menu-btn active" onclick="switchTab('news')">Manage News /Articles</button>
+            <hr class="admin-menu-divider">
+            <button id="btn-category" class="admin-menu-btn inactive" onclick="switchTab('category')">Manage Category</button>
+            <hr class="admin-menu-divider">
+            <button id="btn-report" class="admin-menu-btn inactive" onclick="switchTab('report')">Report</button>
+        </aside>
+
+        <div class="admin-content">
+            
+            <div id="tab-news" class="admin-tab active-tab">
+                <div class="admin-toolbar">
+                    <div class="toolbar-left">
+                        <div class="admin-dropdown">
+                            <div class="color-dot" style="background: red;"></div>
+                            <span>วิธีเลือกไม้...</span> <span class="dropdown-arrow">v</span>
+                        </div>
+                        <div class="admin-dropdown">
+                            <div class="color-dot" style="background: red;"></div>
+                            <span>Articles</span> <span class="dropdown-arrow">v</span>
+                        </div>
+                    </div>
+                    <div class="toolbar-right">
+                        <button class="btn-create-admin" onclick="switchTab('create-news')">Create</button>
+                    </div>
+                </div>
+                <div class="admin-table-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>ID</th><th>NAME</th><th>VIEW</th><th>DATE</th><th>EDIT</th><th>STATUS</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C0001</td><td class="text-left">Golf Techniques</td>
+                                <td><span class="action-icon">👁️</span></td><td>12/10/2025</td>
+                                <td><button class="btn-table-edit" onclick="switchTab('edit-news')">EDIT</button></td>
+                                <td><button class="btn-table-status inactive">INACTIVE</button></td>
+                            </tr>
+                            <tr>
+                                <td>C0002</td><td class="text-left">Golf Equipment</td>
+                                <td><span class="action-icon">👁️</span></td><td>12/10/2025</td>
+                                <td><button class="btn-table-edit" onclick="switchTab('edit-news')">EDIT</button></td>
+                                <td><button class="btn-table-status active">ACTIVE</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-category" class="admin-tab hidden-tab">
+                <div class="admin-toolbar" style="justify-content: flex-end;">
+                    <button class="btn-create-admin" onclick="switchTab('create-category')">Create</button>
+                </div>
+                <div class="admin-table-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>ID</th><th>NAME</th><th>VIEW</th><th>DATE</th><th>EDIT</th><th>STATUS</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C0001</td><td class="text-left">Golf Techniques</td>
+                                <td><span class="action-icon">👁️</span></td><td>12/10/2025</td>
+                                <td><button class="btn-table-edit">EDIT</button></td>
+                                <td><button class="btn-table-status active">ACTIVE</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-report" class="admin-tab hidden-tab">
+                <div class="admin-toolbar">
+                    <div class="toolbar-left">
+                        <div class="admin-dropdown"><div class="color-dot" style="background: red;"></div><span>User</span><span class="dropdown-arrow">v</span></div>
+                        <div class="admin-search-box"><span>🔍</span><input type="text" placeholder="Search ..."></div>
+                    </div>
+                </div>
+                <div class="admin-table-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>ID</th><th>UID</th><th>REASON</th><th>DATE</th><th>STATUS</th><th>ACTION</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R0001</td><td>U0001</td><td>Spam</td><td>12/10/2025</td><td>Process</td>
+                                <td><div class="action-group"><span class="action-icon">👁️</span><span class="action-icon">🚫</span><span class="action-icon">🗑️</span></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-create-news" class="admin-tab hidden-tab">
+                <button class="btn-back" onclick="switchTab('news')"><span class="arrow">←</span> Back</button>
+                <h1 class="page-title-admin">Create News / Articles</h1>
+                <div class="toolbar-left" style="margin-bottom: 20px;">
+                    <div class="admin-dropdown"><span>News</span><span class="dropdown-arrow">v</span></div>
+                    <div class="admin-dropdown"><span>BMW Australian...</span><span class="dropdown-arrow">v</span></div>
+                </div>
+                <div class="admin-form-card">
+                    <div class="form-group"><input type="text" class="admin-input title-input" placeholder="Title*"></div>
+                    <div class="form-group"><div class="admin-upload"><span>Drag and Drop or upload media</span></div></div>
+                    <div class="form-group"><label class="admin-label">Content</label><textarea class="admin-input" rows="5"></textarea></div>
+                    <div class="admin-form-footer">
+                        <label class="pin-switch"><input type="checkbox"> PIN THIS POST TO TOP</label>
+                        <button class="btn-submit-admin" onclick="switchTab('news')">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-edit-news" class="admin-tab hidden-tab">
+                <button class="btn-back" onclick="switchTab('news')"><span class="arrow">←</span> Back</button>
+                <h1 class="page-title-admin">Edit News / Articles</h1>
+                <div class="admin-form-card">
+                    <div class="form-group"><input type="text" class="admin-input" value="BMW Australian PGA Championship"></div>
+                    <div class="form-group"><div class="admin-upload" style="background: #f1f5f9;">[ Image Placeholder ]</div></div>
+                    <div class="form-group"><label class="admin-label">Content</label><textarea class="admin-input" rows="5">Lorem ipsum dolor sit amet...</textarea></div>
+                    <div class="admin-form-footer">
+                        <label class="pin-switch"><input type="checkbox" checked> PIN THIS POST TO TOP</label>
+                        <button class="btn-submit-admin" onclick="switchTab('news')">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-create-category" class="admin-tab hidden-tab">
+                <button class="btn-back" onclick="switchTab('category')"><span class="arrow">←</span> Back</button>
+                <h1 class="page-title-admin">Create Category</h1>
+                <div class="admin-form-card" style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-group">
+                        <input type="text" class="admin-input" placeholder="Category*">
+                        <div class="admin-char-count">0/50</div>
+                    </div>
+                    <div class="admin-form-footer" style="justify-content: flex-end;">
+                        <button class="btn-submit-admin" onclick="switchTab('category')">Post</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <img src="../assets/img/logo.png" alt="A Golf Community Logo" class="footer-logo-img">
+        <div class="footer-bottom"><p>© Copyright 2026 - A Golf Community Website</p></div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.classList.add('hidden-tab');
+                tab.classList.remove('active-tab');
+            });
+            const targetTab = document.getElementById('tab-' + tabName);
+            if (targetTab) {
+                targetTab.classList.remove('hidden-tab');
+                targetTab.classList.add('active-tab');
+            }
+            // จัดการสถานะปุ่ม Sidebar (News, Category, Report เท่านั้น)
+            const mainMenus = ['news', 'category', 'report'];
+            if (mainMenus.includes(tabName)) {
+                document.querySelectorAll('.admin-menu-btn').forEach(btn => btn.classList.replace('active', 'inactive'));
+                document.getElementById('btn-' + tabName).classList.replace('inactive', 'active');
+            }
+        }
+    </script>
+</body>
+</html>

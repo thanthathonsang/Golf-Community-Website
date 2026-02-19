@@ -1,0 +1,92 @@
+/* =========================================
+   1. สีและตัวแปรหลัก
+========================================= */
+:root {
+    --primary-blue: #0066ff;
+    --primary-green: #00c800;
+    --primary-red: #ff0000;
+    --bg-admin: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* =========================================
+   2. พื้นฐาน
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg-admin); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* =========================================
+   3. Navbar (สีดำเดิม)
+========================================= */
+.navbar { background: #000; color: #fff; display: flex; justify-content: space-between; align-items: center; height: 70px; padding: 0 40px; position: sticky; top: 0; z-index: 100; }
+.logo-container { flex: 1; }
+.brand-logo { height: 40px; transform: scale(1.6); transform-origin: left center; }
+.nav-links { flex: 1; display: flex; justify-content: center; gap: 30px; font-size: 14px; }
+.nav-actions { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+.avatar-placeholder { width: 32px; height: 32px; background: #a855f7; border-radius: 50%; }
+
+/* =========================================
+   4. โครงสร้าง Admin
+========================================= */
+.admin-container { display: flex; gap: 40px; padding: 50px 40px; max-width: 1400px; margin: 0 auto; width: 100%; flex: 1; }
+.admin-sidebar { width: 260px; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: fit-content; }
+
+/* ปุ่มเมนู Sidebar */
+.admin-menu-btn { width: 100%; padding: 15px 20px; border-radius: 6px; border: none; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; transition: 0.2s; margin: 5px 0; }
+.admin-menu-btn.active { background: var(--primary-blue); color: #fff; }
+.admin-menu-btn.inactive { background: #888; color: #fff; }
+.admin-menu-divider { border: none; border-top: 2px solid #333; margin: 10px 0; }
+
+/* =========================================
+   5. ปุ่ม Create (ที่ตกแต่งใหม่)
+========================================= */
+.btn-create-admin {
+    background: #fff; color: var(--primary-blue); border: 1.5px solid var(--primary-blue);
+    border-radius: 10px; padding: 10px 35px; font-size: 16px; font-weight: 700; cursor: pointer;
+    transition: all 0.3s; box-shadow: 0 4px 6px rgba(0, 102, 255, 0.1);
+}
+.btn-create-admin:hover { background: var(--primary-blue); color: #fff; transform: translateY(-2px); }
+
+/* =========================================
+   6. ตารางและ Toolbar
+========================================= */
+.admin-content { flex: 1; }
+.admin-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.admin-dropdown { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 20px; display: flex; align-items: center; gap: 10px; font-weight: 700; cursor: pointer; }
+.dropdown-arrow { color: var(--primary-blue); }
+.color-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+.admin-table-card { background: #fff; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); padding: 25px; }
+.admin-table { width: 100%; border-collapse: collapse; border: 2px solid #e2e8f0; }
+.admin-table th, .admin-table td { border: 2px solid #e2e8f0; padding: 15px; text-align: center; }
+.admin-table th { color: #888; }
+.admin-table td.text-left { text-align: left; padding-left: 30px; font-weight: 600; }
+
+.btn-table-edit { background: #ff8c00; color: #fff; border: none; border-radius: 6px; padding: 8px 20px; font-weight: 700; cursor: pointer; }
+.btn-table-status { color: #fff; border: none; border-radius: 6px; padding: 8px 15px; font-weight: 700; width: 100px; cursor: pointer; }
+.btn-table-status.inactive { background: var(--primary-red); }
+.btn-table-status.active { background: var(--primary-green); }
+
+/* =========================================
+   7. ปุ่ม Back และหน้าฟอร์ม (Create/Edit)
+========================================= */
+.btn-back { display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: #64748b; font-size: 14px; font-weight: 600; cursor: pointer; margin-bottom: 15px; transition: 0.2s; }
+.btn-back:hover { color: var(--primary-blue); transform: translateX(-3px); }
+
+.page-title-admin { font-size: 24px; font-weight: 700; margin-bottom: 25px; }
+.admin-form-card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.admin-input { width: 100%; padding: 12px 20px; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 10px; outline: none; }
+.admin-upload { border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 8px; color: #64748b; margin-bottom: 15px; }
+.btn-submit-admin { background: var(--primary-blue); color: #fff; border: none; padding: 12px 40px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+.admin-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.pin-switch { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; }
+
+/* =========================================
+   8. ควบคุม Tab
+========================================= */
+.hidden-tab { display: none; }
+.active-tab { display: block; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+
+/* Footer */
+.footer { background: #0f172a; color: #f8fafc; padding: 40px; margin-top: auto; text-align: center; }
+.footer-logo-img { height: 30px; margin-bottom: 15px; }
