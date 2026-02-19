@@ -1,0 +1,470 @@
+/* CSS Reset & Variables */
+:root {
+    --color-primary: #dcefa8;
+    /* Lime Yellow/Green */
+    --color-primary-hover: #cbe090;
+    --color-dark-teal: #1a4d4d;
+    --color-darker-teal: #123838;
+    --color-navy-bg: #0d111e;
+    /* Dark Navy for Footer */
+    --color-text-white: #ffffff;
+    --color-text-gray: #b0c4c4;
+    --color-card-bg: #0f4c4c;
+
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-white);
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 30px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* Anchor for centered nav */
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-white);
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-navy-bg);
+    /* Fallback color */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Ensure pseudo-element doesn't overflow */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.45;
+    /* Adjust transparency here */
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 76, 76, 0.9) 0%, rgba(15, 76, 76, 0.6) 50%, rgba(15, 76, 76, 0.2) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 80px;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    gap: 40px;
+    /* Space between text and card */
+}
+
+/* Hero Text Side */
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 80px;
+    /* Fluid font size */
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.hero-text .text-highlight {
+    color: var(--color-primary);
+}
+
+.hero-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-primary);
+    color: #000;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    transition: all 0.2s;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text-white);
+}
+
+.social-icons a:hover {
+    background-color: var(--color-text-white);
+    color: var(--color-dark-teal);
+    border-color: var(--color-text-white);
+}
+
+/* Hero Card Side */
+.hero-card {
+    width: 450px;
+    background-color: rgba(6, 60, 60, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.date-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    /* Moved to left as per design, wait design has it centered in image kinda? No, looks like overlay. Let's stick to design. */
+    /* Wait, looking at design, the circle 27 NOV is overlaid on the image, slightly to the right of center or near the player */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60px;
+    height: 60px;
+    background-color: rgba(40, 50, 60, 0.8);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.date-badge .day {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-badge .month {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-content .subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a0cece;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.card-content .description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d0e0e0;
+    margin-bottom: 25px;
+}
+
+.card-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.card-link:hover {
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-navy-bg);
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.footer-content p {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 14px;
+    color: #8fa0b0;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    font-size: 12px;
+    color: #607080;
+    position: relative;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-socials a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #607080;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.footer-corner-logo {
+    height: 120px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.footer-bottom p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 14px;
+    color: #607080;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 120px;
+        gap: 60px;
+        /* Space between stacked elements */
+    }
+
+    .hero-text {
+        max-width: 80%;
+        /* Let text span wider on tablets */
+        margin-bottom: 0;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 60px;
+        /* Adjust font size for tablets */
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Simple hiding for now, normally would do burger menu */
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+        /* Adjust font size for mobile */
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 380px;
+        /* Slightly smaller card for mobile */
+    }
+
+    .footer-bottom {
+        display: flex;
+        /* Ensure flex is active to stack */
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer-bottom p {
+        position: static;
+        transform: none;
+        order: 3;
+        margin-top: 20px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .footer-socials {
+        order: 2;
+    }
+
+    .footer-corner-logo {
+        order: 1;
+        margin-bottom: 20px;
+    }
+}
