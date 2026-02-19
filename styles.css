@@ -225,7 +225,7 @@ ul {
     left: 20px;
     /* Moved to left as per design, wait design has it centered in image kinda? No, looks like overlay. Let's stick to design. */
     /* Wait, looking at design, the circle 27 NOV is overlaid on the image, slightly to the right of center or near the player */
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 
